@@ -1,0 +1,21 @@
+{{block "auth" .}}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!--htmx version @2.0.3 -->
+    <script src="../static/htmx.min.js"></script>
+    <link rel="stylesheet" href="../static/css/index.css" />
+  </head>
+  <body>
+    <div class="auth-wrapper">
+      <form hx-post="/authenticate">
+        <input type="text" name="secret" placeholder="Write Your Secret ..." />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
+{{end}}

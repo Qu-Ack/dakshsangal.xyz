@@ -1,0 +1,121 @@
+body {
+  background-color: black;
+  color: white;
+}
+.main-wrapper {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+}
+
+.app-wrapper {
+  width: 50%;
+}
+
+.nav-icons {
+  display: flex;
+  gap: 1.4rem;
+}
+
+.nav-icons a {
+  font-size: 1.2rem;
+  color: white;
+  text-decoration: none;
+}
+
+.nav-icons a:hover {
+  color: grey;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 4rem;
+  margin-top: 4rem;
+}
+
+nav .nav-heading {
+  text-decoration: none;
+  color: white;
+  font-size: 3rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav .nav-heading:hover {
+  color: grey;
+}
+
+main {
+  width: 100%;
+  overflow: hidden;
+}
+
+main .image-wrapper {
+  width: 100%;
+  height: 563px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  max-width: 100%;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+.main-quote {
+  display: flex;
+  margin-top: 0.5rem;
+  justify-content: end;
+}
+
+footer {
+  font-size: 1.3rem;
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+footer .photo-credit {
+  color: white;
+}
+footer .photo-credit:hover {
+  color: grey;
+}
+
+.auth-wrapper {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 1200px) {
+  .app-wrapper {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .app-wrapper {
+    width: 90%;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  nav .nav-heading {
+    font-size: 2rem;
+  }
+}

@@ -1,18 +1,16 @@
-{{block "error" .}}
+{{block "authed" .}}
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Internal Server Error</title>
+    <title>You Are Already Authed</title>
     <link rel="stylesheet" href="../static/css/index.css" />
   </head>
   <body>
-    <div class="error-wrapper">
-      <div class="internal-server-error">
-        <h1>{{.StatusCode}}</h1>
-        <h2>{{.Error}}</h2>
-        <a href="/authenticate">Authenticate</a>
+    <div class="alreadyauthed-wrapper">
+      <div class="alreadyauthed-message">
+        <h1>You Are Already Authed</h1>
         <a href="/">Go Back To Home</a>
       </div>
     </div>

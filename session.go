@@ -18,7 +18,7 @@ var session = Session{
 
 func (sess Session) isValid() bool {
 	sess.mutex.RLock()
-	defer sess.mutex.Unlock()
+	defer sess.mutex.RUnlock()
 
 	if sess.token == "" {
 		return false

@@ -24,3 +24,13 @@ func validateToken(next http.HandlerFunc) http.HandlerFunc {
 		next(w, r)
 	}
 }
+
+func alreadyAuthed(next http.HandlerFunc) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		if session.isValid() {
+			templates["authed"].ExecuteTemplate(w, "authed", "")
+			return
+		}
+		next(w, r)
+	}
+}

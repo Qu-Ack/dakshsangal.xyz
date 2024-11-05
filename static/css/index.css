@@ -98,6 +98,80 @@ footer .photo-credit:hover {
   align-items: center;
 }
 
+.auth-wrapper form input {
+  padding: 12px;
+  background: black;
+  color: white;
+  outline: none;
+  width: 20vw;
+  border: 1px solid white;
+}
+.auth-wrapper form button {
+  padding: 12px;
+  background: black;
+  color: white;
+}
+.auth-wrapper form button:hover {
+  background: white;
+  cursor: pointer;
+  color: black;
+}
+.error-wrapper {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-wrapper .internal-server-error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.error-wrapper .internal-server-error h1 {
+  font-size: 5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.error-wrapper .internal-server-error a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.7rem;
+}
+.error-wrapper .internal-server-error a:hover {
+  color: grey;
+}
+
+.alreadyauthed-wrapper {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.alreadyauthed-wrapper .alreadyauthed-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.alreadyauthed-wrapper .alreadyauthed-message h1 {
+  font-size: 5rem;
+}
+.alreadyauthed-wrapper .alreadyauthed-message a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.7rem;
+}
+
+.alreadyauthed-wrapper .alreadyauthed-message a:hover {
+  color: grey;
+}
 @media screen and (max-width: 1200px) {
   .app-wrapper {
     width: 70%;

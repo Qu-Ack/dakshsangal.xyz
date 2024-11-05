@@ -5,6 +5,6 @@ import (
 )
 
 func handleWriteBlog(w http.ResponseWriter, r *http.Request) {
+	templates["writeblog"].ExecuteTemplate(w, "writeblog", "")
 
-	w.Write([]byte("authed"))
 }

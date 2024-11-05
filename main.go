@@ -25,7 +25,7 @@ func main() {
 	})
 	serveMux.HandleFunc("GET /", handleGetIndex)
 	serveMux.HandleFunc("GET /write/blog", validateToken(handleWriteBlog))
-	serveMux.HandleFunc("GET /authenticate", handleAuth)
+	serveMux.HandleFunc("GET /authenticate", alreadyAuthed(handleAuth))
 	serveMux.HandleFunc("POST /authenticate", handlePostAuth)
 
 	server := http.Server{

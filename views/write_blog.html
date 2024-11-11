@@ -9,8 +9,18 @@
     <script src="../static/js/writer.js" defer></script>
   </head>
   <body>
-    <div contenteditable="true" oninput="">
-      <p>Try To Press Enter and see what happens</p>
+    <div class="options">
+      <button class="bold-button">Bold</button>
+      <button class="italics-button">Italics</button>
+      <button class="code-button">Code</button>
+      <button class="image-button">Image</button>
+    </div>
+    <div
+      class="writer"
+      contenteditable="true"
+      aria-placeholder="write your content"
+    >
+      Write your contents here
     </div>
   </body>
 </html>

@@ -7,6 +7,15 @@ body {
   display: flex;
   justify-content: center;
 }
+.writer {
+  padding: 12px;
+}
+
+.optionbutton {
+  background: black;
+  color: white;
+  border-right: 1px solid white;
+}
 
 .app-wrapper {
   width: 50%;

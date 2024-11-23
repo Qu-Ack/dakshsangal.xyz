@@ -11,6 +11,10 @@ body {
   padding: 12px;
 }
 
+.writer:focus {
+  border: 1px solid white;
+}
+
 .optionbutton {
   background: black;
   color: white;

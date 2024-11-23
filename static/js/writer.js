@@ -2,6 +2,7 @@ const boldButton = document.querySelector(".bold-button");
 const italicsButton = document.querySelector(".italics-button");
 const codeButton = document.querySelector(".code-button");
 const imageButton = document.querySelector(".image-button");
+const writer = document.querySelector(".writer");
 
 let divSelectedOrNot = false;
 
@@ -9,8 +10,9 @@ InitializeEventListeners();
 
 document.addEventListener("selectionchange", (e) => {
   const selection = getSelection();
+  console.log(selection.anchorNode.nodeName);
   if (selection.type == "Range" && selection.rangeCount > 0) {
-    if (selection.anchorNode.attributes) {
+    if (selection.anchorNode.nodeName == "DIV") {
       divSelectedOrNot = true;
     } else {
       divSelectedOrNot = false;
@@ -19,6 +21,7 @@ document.addEventListener("selectionchange", (e) => {
 });
 
 function divSelected(selectionObject, node, att) {
+  console.log("this is a div", node.textContent.trim());
   switch (att) {
     case "BOLD":
       node.textContent = node.textContent
@@ -39,6 +42,7 @@ function textSelected(selectionObject, node, att) {
   const word = text
     .substring(selectionObject.anchorOffset, selectionObject.focusOffset)
     .trim();
+  console.log("this is a word", word);
   switch (att) {
     case "BOLD":
       node.parentNode.textContent = text.replace(word, `**${word}**`);
@@ -69,4 +73,18 @@ function InitializeEventListeners() {
       textSelected(selection, selection.anchorNode, "ITALICS");
     }
   });
+
+  writer.addEventListener("click", () => {
+    writer.focus();
+  });
+
+  writer.addEventListener("keydown", (e) => {
+    console.log("keyd own");
+  });
+}
+
+function handleKeyPressOnWriter(key) {
+  switch (key) {
+    case "ENTER":
+  }
 }

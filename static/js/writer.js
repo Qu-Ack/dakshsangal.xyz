@@ -24,9 +24,14 @@ function divSelected(selectionObject, node, att) {
   console.log("this is a div", node.textContent.trim());
   switch (att) {
     case "BOLD":
+      console.log(
+        "inside divSelected function, the text selected is : ",
+        node.textContent,
+      );
       node.textContent = node.textContent
         .trim()
         .replace(node.textContent.trim(), `**${node.textContent.trim()}**`);
+      console.log("new textContent, :", node.textContent);
       break;
     case "ITALICS":
       node.textContent = node.textContent
@@ -37,12 +42,16 @@ function divSelected(selectionObject, node, att) {
 }
 
 function textSelected(selectionObject, node, att) {
-  console.log("in textSelected");
+  console.log(selectionObject);
+  console.log(selectionObject.getRangeAt(0));
   const text = node.parentNode.textContent;
   const word = text
     .substring(selectionObject.anchorOffset, selectionObject.focusOffset)
     .trim();
-  console.log("this is a word", word);
+  console.log(
+    "inside textSelected function, the text that the operation will be applied on is : ",
+    word,
+  );
   switch (att) {
     case "BOLD":
       node.parentNode.textContent = text.replace(word, `**${word}**`);

@@ -2,6 +2,7 @@
 import prisma from "@/lib/prisma/client";
 import { NextResponse } from "next/server";
 import { z } from "zod";
+import isAuthenticated from "../../login/authenticate";
 
 export async function GET(
 	request: Request,
@@ -31,6 +32,8 @@ export async function DELETE(
 	request: Request,
 	{ params }: { params: Promise<{ blogid: string }> },
 ) {
+	isAuthenticated(request);
+
 	const blogid = Number((await params).blogid);
 	console.log(request);
 
@@ -60,7 +63,8 @@ export async function PUT(
 	request: Request,
 	{ params }: { params: Promise<{ blogid: string }> },
 ) {
-	const body = request.json();
+	isAuthenticated(request);
+	const body = await request.json();
 	const blogid = Number((await params).blogid);
 
 	if (prisma == undefined) {

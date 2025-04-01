@@ -1,6 +1,7 @@
 import prisma from "@/lib/prisma/client";
 import { NextResponse } from "next/server";
 import { z } from "zod";
+import isAuthenticated from "../../login/authenticate";
 
 export async function GET(
 	request: Request,
@@ -47,6 +48,7 @@ export async function PUT(
 	request: Request,
 	{ params }: { params: Promise<{ draftid: string }> },
 ) {
+	isAuthenticated(request);
 	const draftid = Number((await params).draftid);
 	const body = await request.json();
 
@@ -88,6 +90,7 @@ export async function DELETE(
 		params: Promise<{ draftid: string }>;
 	},
 ) {
+	isAuthenticated(request);
 	console.log(request);
 	const draftId = Number((await params).draftid);
 

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma/client";
 const sanitizeHtml = require("sanitize-html");
 import { z } from "zod";
+import isAuthenticated from "../login/authenticate";
 
 const createBlogSchema = z.object({
 	title: z.string(),
@@ -9,6 +10,8 @@ const createBlogSchema = z.object({
 });
 
 export async function POST(request: Request) {
+	isAuthenticated(request);
+
 	const body = await request.json();
 	const output = createBlogSchema.safeParse(body);
 

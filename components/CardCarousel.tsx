@@ -7,14 +7,14 @@ import Card from "./Card";
 export default function CardCarousel() {
 	const cardData = [
 		{
-			url: "./background.svg",
+			url: "/background.svg",
 			alt: "night sky full of stars",
 			quote:
 				"I stare into the infinite night sky, wishing to sleep under them, wearing the stars like a blanket, free from all the worries",
 			background: "#010214",
 		},
 		{
-			url: "./background.svg",
+			url: "/background.svg",
 			alt: "night sky full of stars",
 			quote:
 				"I stare into the infinite night sky, wishing to sleep under them, wearing the stars like a blanket, free from all the worries",

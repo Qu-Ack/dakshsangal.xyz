@@ -24,6 +24,12 @@ model Blog {
   Comment     Comment[]
 }
 
+model Session {
+  Id         String   @id
+  loggedInAt DateTime @default(now())
+  expiresAt  DateTime
+}
+
 model Comment {
   Id      Int    @id @default(autoincrement())
   content String

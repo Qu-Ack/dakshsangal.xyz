@@ -1,6 +1,7 @@
 import prisma from "@/lib/prisma/client";
 import { NextResponse } from "next/server";
 import { z } from "zod";
+import isAuthenticated from "../login/authenticate";
 
 const createBlogSchema = z.object({
 	title: z.string(),
@@ -8,6 +9,7 @@ const createBlogSchema = z.object({
 });
 
 export async function POST(request: Request) {
+	isAuthenticated(request);
 	const body = await request.json();
 	const output = createBlogSchema.safeParse(body);
 
@@ -36,4 +38,25 @@ export async function POST(request: Request) {
 	console.log(result);
 
 	return NextResponse.json({ status: "success", output });
+}
+
+export async function GET(request: Request) {
+	isAuthenticated(request);
+	console.log(request);
+
+	if (prisma == undefined) {
+		console.error("Prisma Client Not Instantitated");
+		return NextResponse.json({
+			status: "failiure",
+			message: "Internal Server Error",
+		});
+	}
+
+	const result = await prisma.blog.findMany({
+		where: {
+			draft: true,
+		},
+	});
+
+	return NextResponse.json({ status: "success", drafts: result });
 }

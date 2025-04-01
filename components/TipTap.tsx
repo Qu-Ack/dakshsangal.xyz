@@ -4,13 +4,14 @@ import StarterKit from "@tiptap/starter-kit";
 import { CodeBlockLowlight } from "@tiptap/extension-code-block-lowlight";
 import { common, createLowlight } from "lowlight";
 import { useState } from "react";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 const Tiptap = () => {
 	const [title, setTitle] = useState("");
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [isDrafting, setIsDrafting] = useState(false);
 	const [error, setError] = useState("");
+	const router = useRouter();
 	const [success, setSuccess] = useState("");
 
 	const editor = useEditor({
@@ -52,7 +53,7 @@ const Tiptap = () => {
 			const data = await response.json();
 			console.log(data);
 			setSuccess("Post published successfully!");
-			redirect("/");
+			router.push("/");
 		} catch (err) {
 			console.error(err);
 			setError(
@@ -89,7 +90,7 @@ const Tiptap = () => {
 			const data = await response.json();
 			console.log(data);
 			setSuccess("Draft saved successfully!");
-			redirect("/");
+			router.push("/");
 		} catch (err) {
 			console.error(err);
 			setError(

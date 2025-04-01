@@ -15,12 +15,13 @@ datasource db {
 }
 
 model Blog {
-  Id        Int       @id @default(autoincrement())
-  title     String
-  content   String
-  createdAt DateTime  @default(now())
-  draft     Boolean   @default(true)
-  Comment   Comment[]
+  Id          Int       @id @default(autoincrement())
+  title       String
+  content     String
+  createdAt   DateTime  @default(now())
+  publishedAt DateTime  @default(now())
+  draft       Boolean   @default(false)
+  Comment     Comment[]
 }
 
 model Comment {

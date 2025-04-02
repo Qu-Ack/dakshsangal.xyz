@@ -16,7 +16,7 @@ export default function CMS({ children }: { children: React.ReactNode }) {
 		}
 
 		getSesToken();
-	}, []);
+	}, [router]);
 
 	return (
 		<div className="w-[100%] min-h-[70vh] border-t-yellow-300 border-t p-3 mt-10 flex flex-col gap-12">

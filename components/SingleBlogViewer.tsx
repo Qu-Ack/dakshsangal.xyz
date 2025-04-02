@@ -98,7 +98,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ language, code }) => {
 								key = "class";
 							}
 
-							let processedValue = Array.isArray(value)
+							const processedValue = Array.isArray(value)
 								? value.join(" ")
 								: value;
 

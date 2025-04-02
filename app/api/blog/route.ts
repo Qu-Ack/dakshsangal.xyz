@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma/client";
-const sanitizeHtml = require("sanitize-html");
+import sanitize from "sanitize-html";
 import { z } from "zod";
 import isAuthenticated from "../login/authenticate";
 
@@ -31,8 +31,8 @@ export async function POST(request: Request) {
 	}
 	console.log(output.data);
 
-	const sanitizedTitle = sanitizeHtml(output.data.title);
-	const sanitizedContent = sanitizeHtml(output.data.content, {
+	const sanitizedTitle = sanitize(output.data.title);
+	const sanitizedContent = sanitize(output.data.content, {
 		allowedAttributes: {
 			code: ["class"],
 			span: ["class"],

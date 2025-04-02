@@ -25,11 +25,13 @@ export default function Draft({
 				const blog = (await response.json()).draft;
 
 				setBlog(blog);
-			} catch (err) {}
+			} catch (err) {
+				console.log(err);
+			}
 		}
 
 		getDraft();
-	}, []);
+	}, [params]);
 
 	return <SingleBlogViewerClient blog={blog}></SingleBlogViewerClient>;
 }

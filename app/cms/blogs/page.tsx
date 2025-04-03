@@ -22,6 +22,7 @@ export default function CmsDrafts() {
 				const response = await fetch("http://localhost:3000/api/blog", {
 					headers: {
 						session: sesId,
+						"Content-Type": "application/json",
 					},
 				});
 

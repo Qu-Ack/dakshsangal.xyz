@@ -45,15 +45,17 @@ function extractHeader(request: Request) {
 
 export default function isAuthenticated(request: Request) {
 	const isAuthenticated = Authenticate(request);
+	const origin = request.headers.get("origin") || "*";
 
 	if (!isAuthenticated) {
-		return NextResponse.json(
-			{ status: "failure", error: "Authentication Error" },
+		return new NextResponse(
+			JSON.stringify({ status: "failure", error: "Authentication Error" }),
 			{
 				status: 401,
 				headers: {
-					"Access-Control-Allow-Origin": "*",
 					"Content-Type": "application/json",
+					"Access-Control-Allow-Origin": origin,
+					Vary: "Origin",
 				},
 			},
 		);

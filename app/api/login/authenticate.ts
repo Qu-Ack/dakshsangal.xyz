@@ -1,5 +1,6 @@
 import prisma from "@/lib/prisma/client";
 import { NextResponse } from "next/server";
+import CryptoJS from "crypto-js";
 
 async function Authenticate(request: Request): Promise<boolean> {
 	const sessionId = extractHeader(request);

@@ -48,8 +48,14 @@ export default function isAuthenticated(request: Request) {
 
 	if (!isAuthenticated) {
 		return NextResponse.json(
-			{ status: "failiure", error: "Authentication Error" },
-			{ status: 401 },
+			{ status: "failure", error: "Authentication Error" },
+			{
+				status: 401,
+				headers: {
+					"Access-Control-Allow-Origin": "*",
+					"Content-Type": "application/json",
+				},
+			},
 		);
 	}
 }

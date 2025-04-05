@@ -19,7 +19,7 @@ export default function CmsDrafts() {
 					router.push("/login");
 					return;
 				}
-				const response = await fetch("http://localhost:3000/api/draft", {
+				const response = await fetch("http://dbtr6d.localhost/api/draft", {
 					headers: {
 						Authorization: `${sesId}`,
 					},

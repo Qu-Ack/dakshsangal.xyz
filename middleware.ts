@@ -6,6 +6,7 @@ export function middleware(request: NextRequest) {
 	const origin = request.headers.get("origin") || "*";
 
 	if (request.method === "OPTIONS") {
+		console.log("options request initiated");
 		return new NextResponse(null, {
 			status: 204,
 			headers: {

@@ -27,6 +27,9 @@ export default function CmsDrafts() {
 				});
 
 				if (!response.ok) {
+					console.log("response is ", response);
+					const data = await response.json();
+					console.log(data);
 					throw new Error("Failed to fetch drafts");
 				}
 

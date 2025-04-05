@@ -58,5 +58,6 @@ export async function GET(request: Request) {
 		},
 	});
 
+	console.log("draft called");
 	return NextResponse.json({ status: "success", drafts: result });
 }

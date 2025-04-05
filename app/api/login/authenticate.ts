@@ -5,6 +5,8 @@ import CryptoJS from "crypto-js";
 async function Authenticate(request: Request): Promise<boolean> {
 	const sessionId = extractHeader(request);
 
+	console.log("the received session id");
+
 	if (!sessionId) {
 		return false;
 	}
@@ -40,6 +42,7 @@ async function Authenticate(request: Request): Promise<boolean> {
 }
 
 function extractHeader(request: Request) {
+	console.log("header we got", request.headers.get("Authorization"));
 	return request.headers.get("Authorization");
 }
 

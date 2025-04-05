@@ -40,7 +40,7 @@ async function Authenticate(request: Request): Promise<boolean> {
 }
 
 function extractHeader(request: Request) {
-	return request.headers.get("session");
+	return request.headers.get("Authorization");
 }
 
 export default function isAuthenticated(request: Request) {

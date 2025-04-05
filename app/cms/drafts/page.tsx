@@ -21,7 +21,7 @@ export default function CmsDrafts() {
 				}
 				const response = await fetch("http://localhost:3000/api/draft", {
 					headers: {
-						session: sesId,
+						Authorization: `${sesId}`,
 						"Content-Type": "application/json",
 					},
 				});
@@ -96,7 +96,7 @@ function DraftCardPreviewer({ blog }: { blog: Blog }) {
 			const response = await fetch(`/api/draft/${blogId}`, {
 				method: "DELETE",
 				headers: {
-					session: sesId,
+					Authorization: sesId,
 				},
 			});
 			if (!response.ok) {

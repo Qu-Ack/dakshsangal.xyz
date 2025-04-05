@@ -45,9 +45,5 @@ async function BlogsList() {
 }
 
 export default function Blogs() {
-	return (
-		<Suspense fallback={<BlogsLoading />}>
-			<BlogsList />
-		</Suspense>
-	);
+	return <BlogsList />;
 }

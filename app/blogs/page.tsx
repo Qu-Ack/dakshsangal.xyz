@@ -20,6 +20,7 @@ async function BlogsList() {
 		const response = await fetch(`http://localhost:3000/api/blog`);
 
 		if (!response.ok) {
+			console.log(response);
 			throw new Error(`Failed to fetch blogs: ${response.status}`);
 		}
 

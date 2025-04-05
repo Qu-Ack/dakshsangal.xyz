@@ -22,7 +22,6 @@ export default function CmsDrafts() {
 				const response = await fetch("http://localhost:3000/api/draft", {
 					headers: {
 						Authorization: `${sesId}`,
-						"Content-Type": "application/json",
 					},
 				});
 

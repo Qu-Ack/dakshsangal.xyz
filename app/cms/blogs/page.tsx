@@ -23,8 +23,7 @@ export default function CmsDrafts() {
 					`${process.env.NEXT_PUBLIC_DOMAIN}/api/blog`,
 					{
 						headers: {
-							session: sesId,
-							"Content-Type": "application/json",
+							Authorization: sesId,
 						},
 					},
 				);
@@ -101,7 +100,7 @@ function DraftCardPreviewer({ blog }: { blog: Blog }) {
 				{
 					method: "DELETE",
 					headers: {
-						session: sesId,
+						Authorization: sesId,
 					},
 				},
 			);
@@ -134,7 +133,7 @@ function DraftCardPreviewer({ blog }: { blog: Blog }) {
 				{
 					method: "PUT",
 					headers: {
-						session: sesId,
+						Authorization: sesId,
 					},
 				},
 			);

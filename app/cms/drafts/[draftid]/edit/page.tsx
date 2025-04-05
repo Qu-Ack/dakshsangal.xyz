@@ -46,7 +46,7 @@ export default function EditBlog({
 					`${process.env.NEXT_PUBLIC_DOMAIN}/api/draft/${draftId}`,
 					{
 						headers: {
-							session: sesId,
+							Authorization: sesId,
 						},
 					},
 				);
@@ -103,7 +103,7 @@ export default function EditBlog({
 					method: "PUT",
 					headers: {
 						"Content-Type": "application/json",
-						session: sesId,
+						Authorization: sesId,
 					},
 					body: JSON.stringify({
 						content: editor?.getHTML(),

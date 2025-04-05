@@ -17,7 +17,7 @@ function BlogsError({ error }: { error: Error }) {
 
 async function BlogsList() {
 	try {
-		const response = await fetch(`http://localhost:3000/api/blog`);
+		const response = await fetch(`/api/blog`);
 
 		if (!response.ok) {
 			console.log(response);

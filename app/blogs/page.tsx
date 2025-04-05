@@ -17,7 +17,7 @@ function BlogsError({ error }: { error: Error }) {
 
 async function BlogsList() {
 	try {
-		const response = await fetch(`/api/blog`);
+		const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/blog`);
 
 		if (!response.ok) {
 			console.log(response);

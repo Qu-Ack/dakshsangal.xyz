@@ -1,10 +1,10 @@
 import { Blog } from "@/lib/prismaClient";
 import Link from "next/link";
 
-export default function BlogsViewers({ blogs }: { blogs: Blog[] }) {
+export default function BlogsViewers({ blogs }: { blogs: Blog[] | null }) {
 	return (
 		<div className="w-[100%] min-h-[70vh] p-3 mt-10">
-			{blogs.map((blog) => {
+			{blogs!.map((blog) => {
 				return <BlogPreviewCard key={blog.Id} blog={blog}></BlogPreviewCard>;
 			})}
 		</div>

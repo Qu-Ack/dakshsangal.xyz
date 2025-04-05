@@ -64,6 +64,7 @@ export async function GET() {
 			draft: false,
 		},
 	});
+	console.log(blogs);
 
 	return NextResponse.json({ blogs });
 }

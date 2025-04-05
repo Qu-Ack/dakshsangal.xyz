@@ -14,11 +14,18 @@ export default function CardCarousel() {
 			background: "#010214",
 		},
 		{
-			url: "/background.svg",
-			alt: "night sky full of stars",
+			url: "/twoface.jpg",
+			alt: "twoface",
 			quote:
-				"I stare into the infinite night sky, wishing to sleep under them, wearing the stars like a blanket, free from all the worries",
-			background: "yellow",
+				"Everyone is Everything, Everyone morphs into one another at one point or another, but how far are you willing to look ?",
+			background: "#214442",
+		},
+		{
+			url: "/cathedral.png",
+			alt: "cathedral",
+			quote:
+				"The peircing light shines through the windows reflecting lighting the place as if some one intended it to be that way.",
+			background: "#906d45",
 		},
 	];
 

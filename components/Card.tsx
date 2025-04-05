@@ -5,8 +5,12 @@ export default function Card(props: {
 }) {
 	return (
 		<div className="flex flex-col justify-center items-center gap-10">
-			<img src={props.url} alt={props.alt} className="h-[100%] w-[100%]" />
-			<div className="italic text-center">{props.quote}</div>
+			<img
+				src={props.url}
+				alt={props.alt}
+				className="h-150 max-w-2xl object-cover rounded-lg shadow-md"
+			/>
+			<div className="italic text-center text-sm">{props.quote}</div>
 		</div>
 	);
 }

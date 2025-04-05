@@ -13,7 +13,7 @@ const getCorsHeaders = (origin: string) => {
 	const headers = {
 		"Access-Control-Allow-Methods": `${process.env.ALLOWED_METHODS}`,
 		"Access-Control-Allow-Headers": `${process.env.ALLOWED_HEADERS}`,
-		"Access-Control-Allow-Origin": `${process.env.DOMAIN_URL}`,
+		"Access-Control-Allow-Origin": `${process.env.ALLOWED_ORIGIN}`,
 	};
 
 	// If no allowed origin is set to default server origin

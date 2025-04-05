@@ -25,6 +25,7 @@ async function BlogsList() {
 		}
 
 		const blogs: Blog[] = (await response.json()).blogs;
+		console.log(blogs);
 
 		if (!blogs || blogs.length === 0) {
 			return <div className="p-3">No blogs found.</div>;
@@ -32,6 +33,7 @@ async function BlogsList() {
 
 		return <BlogsViewers blogs={blogs} />;
 	} catch (error) {
+		console.log(error);
 		return (
 			<BlogsError
 				error={

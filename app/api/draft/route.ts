@@ -1,5 +1,5 @@
 import prisma from "@/lib/prisma/client";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { z } from "zod";
 import isAuthenticated from "../login/authenticate";
 

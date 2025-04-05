@@ -2,7 +2,9 @@ import BlogsViewers from "@/components/BlogsViewer";
 
 export default async function Blogs() {
 	try {
-		const response = await fetch("http://localhost:3000/api/blog");
+		const response = await fetch("http://localhost:3000/api/blog", {
+			cache: "no-store",
+		});
 		if (!response.ok) {
 			console.log(response);
 		}

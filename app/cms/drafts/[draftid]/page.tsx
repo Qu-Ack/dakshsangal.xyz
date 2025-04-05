@@ -15,7 +15,7 @@ export default function Draft({
 			try {
 				const draftId = Number((await params).draftid);
 				const response = await fetch(
-					`http://localhost:3000/api/draft/${draftId}`,
+					`${process.env.NEXT_PUBLIC_DOMAIN}/api/draft/${draftId}`,
 					{
 						headers: {
 							session: localStorage.getItem("sesId")!,

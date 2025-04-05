@@ -37,13 +37,16 @@ const Tiptap = () => {
 				throw new Error("Title and content are required");
 			}
 
-			const response = await fetch("/api/blog", {
-				method: "POST",
-				body: JSON.stringify({
-					content: editor.getHTML(),
-					title: title,
-				}),
-			});
+			const response = await fetch(
+				`${process.env.NEXT_PUBLIC_DOMAIN}/api/blog`,
+				{
+					method: "POST",
+					body: JSON.stringify({
+						content: editor.getHTML(),
+						title: title,
+					}),
+				},
+			);
 
 			if (!response.ok) {
 				const errorData = await response.json().catch(() => ({}));
@@ -74,13 +77,16 @@ const Tiptap = () => {
 				throw new Error("Title and content are required");
 			}
 
-			const response = await fetch("/api/draft", {
-				method: "POST",
-				body: JSON.stringify({
-					content: editor.getHTML(),
-					title: title,
-				}),
-			});
+			const response = await fetch(
+				`${process.env.NEXT_PUBLIC_DOMAIN}/api/draft`,
+				{
+					method: "POST",
+					body: JSON.stringify({
+						content: editor.getHTML(),
+						title: title,
+					}),
+				},
+			);
 
 			if (!response.ok) {
 				const errorData = await response.json().catch(() => ({}));

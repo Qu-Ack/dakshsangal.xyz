@@ -12,10 +12,13 @@ export default function Login() {
 		setError("");
 
 		try {
-			const response = await fetch("/api/login", {
-				method: "POST",
-				body: JSON.stringify({ password }),
-			});
+			const response = await fetch(
+				`${process.env.NEXT_PUBLIC_DOMAIN}/api/login`,
+				{
+					method: "POST",
+					body: JSON.stringify({ password }),
+				},
+			);
 
 			if (!response.ok) {
 				const errorData = await response.json();

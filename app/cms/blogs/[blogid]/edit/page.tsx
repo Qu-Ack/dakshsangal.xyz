@@ -42,11 +42,14 @@ export default function EditBlog({
 					setError("Not authenticated");
 					return;
 				}
-				const response = await fetch(`/api/blog/${blogId}`, {
-					headers: {
-						session: sesId,
+				const response = await fetch(
+					`${process.env.NEXT_PUBLIC_DOMAIN}/api/blog/${blogId}`,
+					{
+						headers: {
+							session: sesId,
+						},
 					},
-				});
+				);
 				if (!response.ok) {
 					throw new Error("Failed to fetch blog");
 				}
@@ -94,17 +97,20 @@ export default function EditBlog({
 				return;
 			}
 
-			const response = await fetch(`/api/blog/${blogId}`, {
-				method: "PUT",
-				headers: {
-					"Content-Type": "application/json",
-					session: sesId,
+			const response = await fetch(
+				`${process.env.NEXT_PUBLIC_DOMAIN}/api/blog/${blogId}`,
+				{
+					method: "PUT",
+					headers: {
+						"Content-Type": "application/json",
+						session: sesId,
+					},
+					body: JSON.stringify({
+						content: editor?.getHTML(),
+						title: blog?.title,
+					}),
 				},
-				body: JSON.stringify({
-					content: editor?.getHTML(),
-					title: blog?.title,
-				}),
-			});
+			);
 
 			if (!response.ok) {
 				const errorData = await response.json();

@@ -19,11 +19,14 @@ export default function CmsDrafts() {
 					router.push("/login");
 					return;
 				}
-				const response = await fetch("http://dbtr6d.localhost/api/draft", {
-					headers: {
-						Authorization: `${sesId}`,
+				const response = await fetch(
+					`${process.env.NEXT_PUBLIC_DOMAIN}/api/draft`,
+					{
+						headers: {
+							Authorization: `${sesId}`,
+						},
 					},
-				});
+				);
 
 				if (!response.ok) {
 					console.log("response is ", response);
@@ -95,12 +98,15 @@ function DraftCardPreviewer({ blog }: { blog: Blog }) {
 				setDeleteError("Not authenticated");
 				return;
 			}
-			const response = await fetch(`/api/draft/${blogId}`, {
-				method: "DELETE",
-				headers: {
-					Authorization: sesId,
+			const response = await fetch(
+				`${process.env.NEXT_PUBLIC_API_URL}/api/draft/${blogId}`,
+				{
+					method: "DELETE",
+					headers: {
+						Authorization: sesId,
+					},
 				},
-			});
+			);
 			if (!response.ok) {
 				const errorData = await response.json();
 				throw new Error(errorData.error || "Failed to delete draft");
@@ -125,12 +131,15 @@ function DraftCardPreviewer({ blog }: { blog: Blog }) {
 				setPublishError("Not authenticated");
 				return;
 			}
-			const response = await fetch(`/api/draft/${draftId}/publish`, {
-				method: "PUT",
-				headers: {
-					session: sesId,
+			const response = await fetch(
+				`${process.env.NEXT_PUBLIC_DOMAIN}/api/draft/${draftId}/publish`,
+				{
+					method: "PUT",
+					headers: {
+						session: sesId,
+					},
 				},
-			});
+			);
 			if (!response.ok) {
 				const errorData = await response.json();
 				throw new Error(errorData.error || "Failed to publish draft");

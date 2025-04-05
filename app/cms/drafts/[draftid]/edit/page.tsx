@@ -42,11 +42,14 @@ export default function EditBlog({
 					setError("Not authenticated");
 					return;
 				}
-				const response = await fetch(`/api/draft/${draftId}`, {
-					headers: {
-						session: sesId,
+				const response = await fetch(
+					`${process.env.NEXT_PUBLIC_DOMAIN}/api/draft/${draftId}`,
+					{
+						headers: {
+							session: sesId,
+						},
 					},
-				});
+				);
 				if (!response.ok) {
 					throw new Error("Failed to fetch draft");
 				}
@@ -94,17 +97,20 @@ export default function EditBlog({
 				return;
 			}
 
-			const response = await fetch(`/api/draft/${draftId}`, {
-				method: "PUT",
-				headers: {
-					"Content-Type": "application/json",
-					session: sesId,
+			const response = await fetch(
+				`${process.env.NEXT_PUBLIC_DOMAIN}/api/draft/${draftId}`,
+				{
+					method: "PUT",
+					headers: {
+						"Content-Type": "application/json",
+						session: sesId,
+					},
+					body: JSON.stringify({
+						content: editor?.getHTML(),
+						title: draft?.title,
+					}),
 				},
-				body: JSON.stringify({
-					content: editor?.getHTML(),
-					title: draft?.title,
-				}),
-			});
+			);
 
 			if (!response.ok) {
 				const errorData = await response.json();

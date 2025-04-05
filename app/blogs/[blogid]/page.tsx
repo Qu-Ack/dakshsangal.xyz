@@ -7,7 +7,9 @@ export default async function SingleBlog({
 }) {
 	const blogid = Number((await params).blogid);
 
-	const response = await fetch(`http://localhost:3000/api/blog/${blogid}`);
+	const response = await fetch(
+		`${process.env.NEXT_PUBLIC_DOMAIN}/api/blog/${blogid}`,
+	);
 	const blog = (await response.json()).blog;
 
 	return <SingleBlogViewer blog={blog}></SingleBlogViewer>;

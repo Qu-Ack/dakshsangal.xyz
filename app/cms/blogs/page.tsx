@@ -19,12 +19,15 @@ export default function CmsDrafts() {
 					router.push("/login");
 					return;
 				}
-				const response = await fetch("http://localhost:3000/api/blog", {
-					headers: {
-						session: sesId,
-						"Content-Type": "application/json",
+				const response = await fetch(
+					`${process.env.NEXT_PUBLIC_DOMAIN}/api/blog`,
+					{
+						headers: {
+							session: sesId,
+							"Content-Type": "application/json",
+						},
 					},
-				});
+				);
 
 				if (!response.ok) {
 					throw new Error("Failed to fetch blogs");
@@ -93,12 +96,15 @@ function DraftCardPreviewer({ blog }: { blog: Blog }) {
 				setDeleteError("Not authenticated");
 				return;
 			}
-			const response = await fetch(`/api/blog/${blogId}`, {
-				method: "DELETE",
-				headers: {
-					session: sesId,
+			const response = await fetch(
+				`${process.env.NEXT_PUBLIC_DOMAIN}/api/blog/${blogId}`,
+				{
+					method: "DELETE",
+					headers: {
+						session: sesId,
+					},
 				},
-			});
+			);
 			if (!response.ok) {
 				const errorData = await response.json();
 				throw new Error(errorData.error || "Failed to delete blog");
@@ -123,12 +129,15 @@ function DraftCardPreviewer({ blog }: { blog: Blog }) {
 				setPublishError("Not authenticated");
 				return;
 			}
-			const response = await fetch(`/api/blog/${blogId}/archive`, {
-				method: "PUT",
-				headers: {
-					session: sesId,
+			const response = await fetch(
+				`${process.env.NEXT_PUBLIC_DOMAIN}/api/blog/${blogId}/archive`,
+				{
+					method: "PUT",
+					headers: {
+						session: sesId,
+					},
 				},
-			});
+			);
 			if (!response.ok) {
 				const errorData = await response.json();
 				throw new Error(errorData.error || "Failed to publish blog");

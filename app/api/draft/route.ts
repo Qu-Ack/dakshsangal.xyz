@@ -8,44 +8,6 @@ const createBlogSchema = z.object({
 	content: z.string(),
 });
 
-const getCorsHeaders = (origin: string) => {
-	const headers = {
-		"Access-Control-Allow-Methods": `${process.env.ALLOWED_METHODS}`,
-		"Access-Control-Allow-Headers": `${process.env.ALLOWED_HEADERS}`,
-		"Access-Control-Allow-Origin": `${process.env.ALLOWED_ORIGIN}`,
-	};
-
-	if (!process.env.ALLOWED_ORIGIN || !origin) return headers;
-
-	const allowedOrigins = process.env.ALLOWED_ORIGIN.split(",");
-
-	if (allowedOrigins.includes("*")) {
-		headers["Access-Control-Allow-Origin"] = "*";
-	} else if (allowedOrigins.includes(origin)) {
-		headers["Access-Control-Allow-Origin"] = origin;
-	}
-
-	// Return result
-	return headers;
-};
-
-// Endpoints
-// ========================================================
-/**
- * Basic OPTIONS Request to simuluate OPTIONS preflight request for mutative requests
- */
-export const OPTIONS = async (request: NextRequest) => {
-	// Return Response
-	console.log("options request in blogs");
-	return NextResponse.json(
-		{},
-		{
-			status: 200,
-			headers: getCorsHeaders(request.headers.get("origin") || ""),
-		},
-	);
-};
-
 export async function POST(request: Request) {
 	isAuthenticated(request);
 	const body = await request.json();

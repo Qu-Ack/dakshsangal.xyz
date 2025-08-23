@@ -3,23 +3,26 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import Card from "./Card";
+import Stars from "@/public/background.svg";
+import Solitude from "@/public/solitude.jpg";
+import Ocean from "@/public/ocean.jpg";
 
 export default function CardCarousel() {
   const cardData = [
     {
-      url: "/background.svg",
+      url: Stars,
       alt: "night sky full of stars",
       quote: "A night full of stars",
       background: "#010214",
     },
     {
-      url: "/solitude.jpg",
+      url: Solitude,
       alt: "solitude",
       quote: "A flower",
       background: "#2d2620",
     },
     {
-      url: "/ocean.jpg",
+      url: Ocean,
       alt: "ocean",
       quote: "the pacific",
       background: "#565654",

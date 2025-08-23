@@ -10,19 +10,19 @@ import Ocean from "@/public/ocean.jpg";
 export default function CardCarousel() {
   const cardData = [
     {
-      url: Stars,
+      url: "background.svg",
       alt: "night sky full of stars",
       quote: "A night full of stars",
       background: "#010214",
     },
     {
-      url: Solitude,
+      url: "solitude.jpg",
       alt: "solitude",
       quote: "A flower",
       background: "#2d2620",
     },
     {
-      url: Ocean,
+      url: "ocean.jpg",
       alt: "ocean",
       quote: "the pacific",
       background: "#565654",

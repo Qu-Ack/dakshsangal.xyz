@@ -4,7 +4,7 @@ export type Project = {
   tech: string[];
   background: string;
   show: boolean;
-  images: string[];
+  image: string;
   backendRepo: string;
   frontendRepo?: string;
   liveLink: string;
@@ -12,7 +12,7 @@ export type Project = {
 
 export default function ProjectCard({ project }: { project: Project }) {
   const {
-    images,
+    image,
     title,
     description,
     tech,
@@ -21,43 +21,14 @@ export default function ProjectCard({ project }: { project: Project }) {
     liveLink,
   } = project;
 
-  // Define a consistent container height
-  const imageContainerHeight = "h-120"; // You can adjust this value
-
-  // Improved grid layout logic
-  let gridClasses = "";
-  if (images.length === 1) {
-    gridClasses = "grid grid-cols-1";
-  } else if (images.length === 2) {
-    gridClasses = "grid grid-cols-2 gap-4";
-  } else if (images.length === 3) {
-    gridClasses = "grid grid-cols-3 gap-4 md:grid-cols-12";
-  }
-
   return (
     <div className="flex flex-col overflow-hidden max-w-[100%] mx-auto text-white">
-      <div className={`${gridClasses} w-full ${imageContainerHeight}`}>
-        {images.map((img, index) => {
-          let extraClasses = "h-full";
-
-          if (images.length === 3) {
-            if (index === 0) {
-              extraClasses += " md:col-span-6 md:row-span-2";
-            } else {
-              extraClasses += " md:col-span-6";
-            }
-          }
-
-          return (
-            <div key={index} className={`${extraClasses} overflow-hidden`}>
-              <img
-                src={img}
-                alt={`${title} - image ${index + 1}`}
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-          );
-        })}
+      <div className="w-full h-48 overflow-hidden">
+        <img
+          src={image}
+          alt={`${title} preview`}
+          className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+        />
       </div>
       <div className="pt-4 flex flex-col gap-3">
         <h1 className="text-xl font-bold text-white text-center">{title}</h1>
@@ -76,7 +47,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             ))}
           </ul>
         </div>
-        <div className="flex gap-3 mt-3 flex justify-center">
+        <div className="flex gap-3 mt-3 justify-center">
           <a
             href={backendRepo}
             className="link"
@@ -87,7 +58,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           </a>
           {frontendRepo && (
             <a
-              href={backendRepo}
+              href={frontendRepo}
               className="link"
               target="_blank"
               rel="noopener noreferrer"

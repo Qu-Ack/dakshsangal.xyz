@@ -7,24 +7,15 @@ export default function ProjectCarousel() {
 
   const projectData: Project[] = [
     {
-      title: "AI Ayurvedic Assistant",
+      title: "Side Project Orchestration",
       description:
-        "Upload your image and get a detailed ayurvedic analysis, along with recommendations for better health based on ayurvedic science.",
-      images: ["./background.png", "./background.png", "./background.png"],
+        "This site is currently using my orchestration service that helps in automating project deployment and CD",
+      image: "orchestration.png",
       show: false,
-      tech: ["golang", "gin router", "opencv", "python", "nextjs"],
-      backendRepo: "https://www.github.com",
-      liveLink: "https://www.github.com",
-      background: "black",
-    },
-    {
-      title: "SIDEHUB",
-      description: "Upload Your SideProjects",
-      images: ["./background.png", "./background.png"],
-      show: false,
-      tech: ["golang", "gin router", "opencv", "python", "nextjs"],
-      backendRepo: "https://www.github.com",
-      liveLink: "https://www.github.com",
+      tech: ["golang", "docker", "nextjs", "traefik"],
+      backendRepo: "https://www.github.com/Qu-Ack/orchestration",
+      frontendRepo: "https://www.github.com/Qu-Ack/orchestration_frontend",
+      liveLink: "http://orchestration.dakshsangal.live",
       background: "black",
     },
   ];

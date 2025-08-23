@@ -3,9 +3,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import Card from "./Card";
-import Stars from "@/public/background.svg";
-import Solitude from "@/public/solitude.jpg";
-import Ocean from "@/public/ocean.jpg";
 
 export default function CardCarousel() {
   const cardData = [
@@ -34,7 +31,7 @@ export default function CardCarousel() {
   useEffect(() => {
     cardData.map((card) => {
       const img = new window.Image();
-      img.src = typeof card.url === "string" ? card.url : card.url.src;
+      img.src = card.url;
     });
 
     document.body.style.backgroundColor = cardData[current].background;

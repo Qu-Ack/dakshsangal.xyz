@@ -32,27 +32,24 @@ export default function CardCarousel() {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
+    cardData.map((card) => {
+      const img = new window.Image();
+      img.src = typeof card.url === "string" ? card.url : card.url.src;
+    });
+
     document.body.style.backgroundColor = cardData[current].background;
   }, []);
 
+  useEffect(() => {
+    document.body.style.backgroundColor = cardData[current].background;
+  }, [current]);
+
   function setNext() {
-    if (current < cardData.length - 1) {
-      setCurrent(current + 1);
-      document.body.style.backgroundColor = cardData[current + 1].background;
-    } else {
-      setCurrent(0);
-      document.body.style.backgroundColor = cardData[0].background;
-    }
+    setCurrent((prev) => (prev < cardData.length - 1 ? prev + 1 : 0));
   }
+
   function setPrevious() {
-    if (current > 0) {
-      setCurrent(current - 1);
-      document.body.style.backgroundColor = cardData[current - 1].background;
-    } else {
-      setCurrent(cardData.length - 1);
-      document.body.style.backgroundColor =
-        cardData[cardData.length - 1].background;
-    }
+    setCurrent((prev) => (prev > 0 ? prev - 1 : cardData.length - 1));
   }
 
   return (

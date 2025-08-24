@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import Card from "./Card";
 
 export default function CardCarousel() {
@@ -11,6 +10,12 @@ export default function CardCarousel() {
       alt: "night sky full of stars",
       quote: "A night full of stars",
       background: "#010214",
+    },
+    {
+      url: "/ocean.jpg",
+      alt: "ocean",
+      quote: "the pacific",
+      background: "#585856",
     },
     {
       url: "/solitude.jpg",
@@ -26,28 +31,35 @@ export default function CardCarousel() {
     },
   ];
 
-  const [current, setCurrent] = useState(0);
+  const [current, setCurrent] = useState<number | null>(null);
 
   useEffect(() => {
-    cardData.map((card) => {
-      const img = new window.Image();
-      img.src = card.url;
-    });
-
-    document.body.style.backgroundColor = cardData[current].background;
+    setCurrent(Math.floor(Math.random() * cardData.length));
   }, []);
 
   useEffect(() => {
-    document.body.style.backgroundColor = cardData[current].background;
+    if (current !== null) {
+      document.body.style.backgroundColor = cardData[current].background;
+    }
   }, [current]);
 
   function setNext() {
-    setCurrent((prev) => (prev < cardData.length - 1 ? prev + 1 : 0));
+    setCurrent((prev) =>
+      prev === null ? 0 : prev < cardData.length - 1 ? prev + 1 : 0,
+    );
   }
 
   function setPrevious() {
-    setCurrent((prev) => (prev > 0 ? prev - 1 : cardData.length - 1));
+    setCurrent((prev) =>
+      prev === null
+        ? cardData.length - 1
+        : prev > 0
+          ? prev - 1
+          : cardData.length - 1,
+    );
   }
+
+  if (current === null) return null;
 
   return (
     <div className="h-[100%]">
@@ -55,7 +67,7 @@ export default function CardCarousel() {
         alt={cardData[current].alt}
         url={cardData[current].url}
         quote={cardData[current].quote}
-      ></Card>
+      />
       <div className="flex w-full mt-8 justify-between">
         <button
           onClick={setNext}

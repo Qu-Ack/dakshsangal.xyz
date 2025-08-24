@@ -1,9 +1,7 @@
 # DAKSHSANGAL.XYZ 
 
-Personal Website
 
-
-I Post Blogs Here as well
+Daksh Sangal's Website
 
 
 

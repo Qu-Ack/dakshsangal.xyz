@@ -15,14 +15,14 @@ export default function CardCarousel() {
     {
       url: "/solitude.jpg",
       alt: "solitude",
-      quote: "A flower",
+      quote: "the man",
       background: "#2d2620",
     },
     {
-      url: "/ocean.jpg",
-      alt: "ocean",
-      quote: "the pacific",
-      background: "#565654",
+      url: "/roses.jpg",
+      alt: "roses",
+      quote: "roses",
+      background: "#96804e",
     },
   ];
 

@@ -7,19 +7,19 @@ import Card from "./Card";
 export default function CardCarousel() {
   const cardData = [
     {
-      url: "background.svg",
+      url: "/background.svg",
       alt: "night sky full of stars",
       quote: "A night full of stars",
       background: "#010214",
     },
     {
-      url: "solitude.jpg",
+      url: "/solitude.jpg",
       alt: "solitude",
       quote: "A flower",
       background: "#2d2620",
     },
     {
-      url: "ocean.jpg",
+      url: "/ocean.jpg",
       alt: "ocean",
       quote: "the pacific",
       background: "#565654",

@@ -51,7 +51,7 @@ export default function ProjectCarousel() {
   return (
     <div className="h-[100%]">
       <ProjectCard project={projectData[current]}></ProjectCard>
-      <div className="flex w-full justify-between">
+      <div className="flex w-full justify-between mt-5 text-yellow-500">
         <button
           onClick={handleNext}
           className="pt-1 pb-1 pl-3 pr-3 hover:bg-gray-200 hover:cursor-pointer hover:text-black"

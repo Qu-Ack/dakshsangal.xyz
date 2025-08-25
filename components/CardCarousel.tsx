@@ -2,8 +2,11 @@
 
 import { useState, useEffect } from "react";
 import Card from "./Card";
+import { useColor } from "@/contexts/ColorContext";
 
 export default function CardCarousel() {
+  const { handleSetColor } = useColor();
+
   const cardData = [
     {
       url: "/background.svg",
@@ -40,6 +43,7 @@ export default function CardCarousel() {
   useEffect(() => {
     if (current !== null) {
       document.body.style.backgroundColor = cardData[current].background;
+      handleSetColor(cardData[current].background);
     }
   }, [current]);
 
@@ -64,10 +68,10 @@ export default function CardCarousel() {
   return (
     <div className="h-[100%]">
       <Card
-        alt={cardData[current].alt}
-        url={cardData[current].url}
         quote={cardData[current].quote}
-      />
+        url={cardData[current].url}
+        alt={cardData[current].alt}
+      ></Card>
       <div className="flex w-full mt-8 justify-between">
         <button
           onClick={setNext}

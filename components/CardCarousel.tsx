@@ -3,13 +3,14 @@
 import { useState, useEffect } from "react";
 import Card from "./Card";
 import { useColor } from "@/contexts/ColorContext";
+import Image from "next/image";
 
 export default function CardCarousel() {
   const { handleSetColor } = useColor();
 
   const cardData = [
     {
-      url: "/background.svg",
+      url: "/background.png",
       alt: "night sky full of stars",
       quote: "A night full of stars",
       background: "#010214",
@@ -72,7 +73,7 @@ export default function CardCarousel() {
         url={cardData[current].url}
         alt={cardData[current].alt}
       ></Card>
-      <div className="flex w-full mt-8 justify-between">
+      <div className="flex w-full mt-5 justify-between">
         <button
           onClick={setNext}
           className="pt-1 pb-1 pl-3 pr-3 hover:bg-gray-200 hover:cursor-pointer hover:text-black"
@@ -85,6 +86,23 @@ export default function CardCarousel() {
         >
           Previous
         </button>
+        {cardData.map((card, idx) => (
+          <div
+            className="flex flex-col justify-center items-center gap-10"
+            key={idx}
+            style={{ display: "none" }}
+          >
+            <div className="relative h-[40vh] w-[60vw] md:h-120 md:max-w-2xl object-cover rounded-lg shadow-md">
+              <Image
+                src={card.url}
+                alt={card.alt}
+                fill
+                className="object-cover rounded-lg shadow-md"
+                priority
+              ></Image>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

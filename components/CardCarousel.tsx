@@ -97,6 +97,7 @@ export default function CardCarousel() {
                 src={card.url}
                 alt={card.alt}
                 fill
+                priority
                 className="object-cover rounded-lg shadow-md"
               ></Image>
             </div>

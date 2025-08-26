@@ -63,7 +63,7 @@ export default function Nav() {
 
       {clicked && (
         <div
-          className="absolute top-0 left-0 h-screen w-screen flex flex-col justify-center items-center"
+          className="absolute top-0 left-0 h-screen w-screen flex flex-col justify-center items-center z-50"
           style={{ backgroundColor: color }}
         >
           <button

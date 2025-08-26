@@ -4,31 +4,35 @@ import { useState, useEffect } from "react";
 import Card from "./Card";
 import { useColor } from "@/contexts/ColorContext";
 import Image from "next/image";
+import background from "@/public/background.png";
+import ocean from "@/public/ocean.jpg";
+import solitude from "@/public/solitude.jpg";
+import roses from "@/public/roses.jpg";
 
 export default function CardCarousel() {
   const { handleSetColor } = useColor();
 
   const cardData = [
     {
-      url: "/background.png",
+      url: background,
       alt: "night sky full of stars",
       quote: "A night full of stars",
       background: "#010214",
     },
     {
-      url: "/ocean.jpg",
+      url: ocean,
       alt: "ocean",
       quote: "the pacific",
       background: "#585856",
     },
     {
-      url: "/solitude.jpg",
+      url: solitude,
       alt: "solitude",
       quote: "the man",
       background: "#2d2620",
     },
     {
-      url: "/roses.jpg",
+      url: roses,
       alt: "roses",
       quote: "roses",
       background: "#96804e",
@@ -96,6 +100,7 @@ export default function CardCarousel() {
               <Image
                 src={card.url}
                 alt={card.alt}
+                placeholder="blur"
                 fill
                 priority
                 className="object-cover rounded-lg shadow-md"

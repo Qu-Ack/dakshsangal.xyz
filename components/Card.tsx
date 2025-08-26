@@ -1,8 +1,8 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 export default function Card(props: {
   quote: string;
-  url: string;
+  url: StaticImageData;
   alt: string;
 }) {
   return (
@@ -11,6 +11,7 @@ export default function Card(props: {
         <Image
           src={props.url}
           alt={props.alt}
+          placeholder="blur"
           fill
           className="object-cover rounded-lg shadow-md"
           priority
